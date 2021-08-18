@@ -27,7 +27,7 @@ namespace PageObjectModel
             LoginPage.GetEnterYourEmailText();
             LoginPage.GetAlreadyRegisteredText();
             LoginPage.GetCreateAnAccountText();
-          
+            
         }
       
         [Test]
