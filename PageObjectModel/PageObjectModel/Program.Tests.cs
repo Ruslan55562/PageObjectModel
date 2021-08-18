@@ -10,6 +10,8 @@ namespace PageObjectModel
     {
         
         protected IWebDriver _webDriver;
+        
+
         [OneTimeSetUp]
         protected void Setup()
         {
@@ -22,12 +24,12 @@ namespace PageObjectModel
         [Test]
         public void GetTextValues()
         {
-            var LoginPage = new LoginPage();
+            var LoginPage = new LoginPage(); 
             PageFactory.InitElements(_webDriver, LoginPage);
             LoginPage.GetEnterYourEmailText();
             LoginPage.GetAlreadyRegisteredText();
             LoginPage.GetCreateAnAccountText();
-            
+          
         }
       
         [Test]
