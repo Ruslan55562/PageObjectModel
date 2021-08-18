@@ -64,38 +64,28 @@ namespace PageObjectModel.PageObjects
 
         #region FUNCTIONS
         //Get_Text Functions
-        public void GetEnterYourEmail_Text()
+        public void GetEnterYourEmailText()
         {
             Console.WriteLine(PleaseEnterYourEmailText.Text);
-           
         }
 
-        public void GetAlreadyRegistered_Text()
+        public void GetAlreadyRegisteredText()
         {
             Console.WriteLine(AlreadyRegisteredTitle.Text);
         }
 
-        public void GetCreateAnAccount_Text()
+        public void GetCreateAnAccountText()
         {
             Console.WriteLine(CreateAnAccountButton.Text);
         }
 
 
         //The method takes 2 arguments(login,passwd) and put them into corresponding fields. Then clicks the "SignIn" button.
-        public void SignInTo_Site(string login, string passwd)
+        public void SignInToSite(string login, string passwd)
         {
-
-            /* WebDriverWait - for practice (third param - IWebDriver wb)
-           // WebDriverWait wait = new WebDriverWait(wb, TimeSpan.FromSeconds(5));
-           // wait.Until(ExpectedConditions.ElementToBeClickable(EmailAdressFieldLogin));*/
-
-
             EmailAdressFieldLogin.SendKeys(login);
-            // wait.Until(ExpectedConditions.ElementToBeClickable(PasswordField));
             PasswordField.SendKeys(passwd);
-            // wait.Until(ExpectedConditions.ElementToBeClickable(SignInButton));
             SignInButton.Click();
-
         }
         #endregion
     }

@@ -24,9 +24,9 @@ namespace PageObjectModel
         {
             var LoginPage = new LoginPage();
             PageFactory.InitElements(_webDriver, LoginPage);
-            LoginPage.GetEnterYourEmail_Text();
-            LoginPage.GetAlreadyRegistered_Text();
-            LoginPage.GetCreateAnAccount_Text();
+            LoginPage.GetEnterYourEmailText();
+            LoginPage.GetAlreadyRegisteredText();
+            LoginPage.GetCreateAnAccountText();
           
         }
       
@@ -36,7 +36,7 @@ namespace PageObjectModel
         {
             var loginPage = new LoginPage();
             PageFactory.InitElements(_webDriver, loginPage);
-            loginPage.SignInTo_Site("user1", "qwerty");
+            loginPage.SignInToSite("user1@ukr.net", "qwerty");
         }
 
 
