@@ -79,7 +79,6 @@ namespace PageObjectModel.PageObjects
             Console.WriteLine(CreateAnAccountButton.Text);
         }
 
-
         //The method takes 2 arguments(login,passwd) and put them into corresponding fields. Then clicks the "SignIn" button.
         public void SignInToSite(string login, string passwd)
         {
