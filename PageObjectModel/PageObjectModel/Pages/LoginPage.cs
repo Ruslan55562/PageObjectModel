@@ -23,46 +23,51 @@ namespace PageObjectModel.PageObjects
 
         // Summary: 'Authentication title'.
         [FindsBy(How = How.XPath, Using = "//h1[@class='page-heading']")]
-        public IWebElement AuthenticationTitle { set; get; }
+        [CacheLookup]
+        private IWebElement AuthenticationTitle { set; get; }
 
         // Summary: 'Create an account' title.
         [FindsBy(How = How.XPath, Using = "//form[@id='create-account_form']/h3")]
-        public IWebElement CreateAnAccountTitle { set; get; }
+        [CacheLookup]
+        private IWebElement CreateAnAccountTitle { set; get; }
 
         // Summary: 'Please enter your emeil address to create an account' text.
         [FindsBy(How = How.XPath, Using = "//form[@id='create-account_form']/div/p")]
-        public IWebElement PleaseEnterYourEmailText { set; get; }
+        [CacheLookup]
+        private IWebElement PleaseEnterYourEmailText { set; get; }
 
         // Summary: 'Email address ' field(create a new user).
         [FindsBy(How = How.XPath, Using = "//input[@id='email_create']")]
-        public IWebElement EmailAdressFieldCreate { set; get; }
+        [CacheLookup]
+        private IWebElement EmailAdressFieldCreate { set; get; }
 
         // Summary: 'Create an account - button'.
         [FindsBy(How = How.XPath, Using = "//button[@id='SubmitCreate']")]
-        public IWebElement CreateAnAccountButton { set; get; }
+        [CacheLookup]
+        private IWebElement CreateAnAccountButton { set; get; }
 
         
         //LOGIN FORM
 
         // Summary: 'AlreadyRegistered' - title.
-        [FindsBy(How = How.XPath, Using = "//form[@id='login_form']/h3")]
-        public IWebElement AlreadyRegisteredTitle { set; get; }
+        [FindsBy(How = How.XPath, Using = "//form[@id='login_form']/h3")][CacheLookup]
+        private IWebElement AlreadyRegisteredTitle { set; get; }
 
         // Summary: 'Email adress' - field(User is already registered).
-        [FindsBy(How = How.XPath, Using = " //input[@id='email']")]
-        public IWebElement EmailAdressFieldLogin { set; get; }
+        [FindsBy(How = How.XPath, Using = " //input[@id='email']")][CacheLookup]
+        private IWebElement EmailAdressFieldLogin { set; get; }
 
         // Summary: 'password' - field(User is already registered).
-        [FindsBy(How = How.XPath, Using = "//input[@id='passwd']")]
-        public IWebElement PasswordField { set; get; }
+        [FindsBy(How = How.XPath, Using = "//input[@id='passwd']")][CacheLookup]
+        private IWebElement PasswordField { set; get; }
 
         // Summary: 'Forgot your password' - link.
-        [FindsBy(How = How.XPath, Using = "//p[@class='lost_password form-group']/a")]
-        public IWebElement ForgotYourPasswordLink { set; get; }
+        [FindsBy(How = How.XPath, Using = "//p[@class='lost_password form-group']/a")][CacheLookup]
+        private IWebElement ForgotYourPasswordLink { set; get; }
 
         // Summary: 'Sign in' - button.
-        [FindsBy(How = How.XPath, Using = "//button[@id='SubmitLogin']")]
-        public IWebElement SignInButton { set; get; }
+        [FindsBy(How = How.XPath, Using = "//button[@id='SubmitLogin']")] [CacheLookup]
+        private IWebElement SignInButton { set; get; }
         #endregion
 
 
@@ -80,6 +85,7 @@ namespace PageObjectModel.PageObjects
         {
             Console.WriteLine(AlreadyRegisteredTitle.Text);
             return this;
+            
         }
 
         public LoginPage GetCreateAnAccountText()
