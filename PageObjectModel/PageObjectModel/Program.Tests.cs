@@ -10,7 +10,8 @@ namespace PageObjectModel
     {
         
         protected IWebDriver _webDriver;
-        
+        LoginPage _loginPage; 
+
 
         [OneTimeSetUp]
         protected void Setup()
@@ -18,26 +19,22 @@ namespace PageObjectModel
             _webDriver = new ChromeDriver();
             _webDriver.Manage().Window.Maximize();
             _webDriver.Navigate().GoToUrl(@"http://automationpractice.com/index.php?controller=authentication&back=my-account");
+            _loginPage = new LoginPage(_webDriver);
             
         }
        
         [Test]
         public void GetTextValues()
         {
-            var LoginPage = new LoginPage(); 
-            PageFactory.InitElements(_webDriver, LoginPage);
-            LoginPage.GetEnterYourEmailText();
-            LoginPage.GetAlreadyRegisteredText();
-            LoginPage.GetCreateAnAccountText();
-          
+            _loginPage.GetEnterYourEmailText();
+            _loginPage.GetAlreadyRegisteredText();
+            _loginPage.GetCreateAnAccountText();
         }
       
         [Test]
          public void SignIn()
         {
-            var loginPage = new LoginPage();
-            PageFactory.InitElements(_webDriver, loginPage);
-            loginPage.SignInToSite("user1@ukr.net", "qwerty");
+            _loginPage.SignInToSite("user1@ukr.net", "qwerty");
         }
 
 

@@ -11,7 +11,12 @@ namespace PageObjectModel.PageObjects
 {
     public class LoginPage
     {
-
+        private IWebDriver driver;
+        public LoginPage(IWebDriver driver)
+        {
+            this.driver = driver;
+            PageFactory.InitElements(driver, this);
+        }
 
         #region LOCATORS
         //CREATE-ACCOUNT FORM
@@ -65,27 +70,31 @@ namespace PageObjectModel.PageObjects
 
         #region FUNCTIONS
         //Get_Text Functions
-        public void GetEnterYourEmailText()
+        public LoginPage GetEnterYourEmailText()
         {
             Console.WriteLine(PleaseEnterYourEmailText.Text);
+            return this;
         }
 
-        public void GetAlreadyRegisteredText()
+        public LoginPage GetAlreadyRegisteredText()
         {
             Console.WriteLine(AlreadyRegisteredTitle.Text);
+            return this;
         }
 
-        public void GetCreateAnAccountText()
+        public LoginPage GetCreateAnAccountText()
         {
             Console.WriteLine(CreateAnAccountButton.Text);
+            return this;
         }
 
         //The method takes 2 arguments(login,passwd) and put them into corresponding fields. Then clicks the "SignIn" button.
-        public void SignInToSite(string login, string passwd)
+        public LoginPage SignInToSite(string login, string passwd)
         {
             EmailAdressFieldLogin.SendKeys(login);
             PasswordField.SendKeys(passwd);
-            SignInButton.Click();  
+            SignInButton.Click();
+            return this;
         }
         #endregion
     }
